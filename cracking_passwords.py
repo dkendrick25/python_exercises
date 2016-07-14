@@ -22,9 +22,12 @@ for word in content:
 
 file = open('accounts.json', 'r')
 accounts = json.loads(file.read())
-
+count = 0
 for account in accounts:
     password = account.get('password')
     username = account.get('username')
     if password in encrypted_common_words:
+        count = count + 1
         print username +  ": " + encrypted_common_words[password]
+
+print count "accounts cracked"
